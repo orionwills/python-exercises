@@ -61,7 +61,7 @@
 # Alter your loop to count backwards by 5's from 100 to -10.
 
 # i = 100
-# while i > -10:
+# while i >= -10:
 #     print(i)
 #     i -= 5
 
@@ -83,10 +83,10 @@
 #Write some code that prompts the user for a number, then shows 
 # a multiplication table up through 10 for that number.
 
-# user_number = input('Enter a number: ')
+# user_number = int(input('Enter a number: '))
 # i = 1
 # for x in range(i, 11):
-#     print(f'{user_number} x {i} = {int(user_number) * x}')
+#     print(f'{user_number} x {i} = {user_number * x}')
 #     i += 1
 
 #Create a for loop that uses print to create the output shown below.
@@ -130,10 +130,12 @@
 # user_input = input('Enter an odd number between 1 and 50: ')
 # while not user_input.isdigit() or int(user_input) > 50 or int(user_input) < 1 or int(user_input) % 2 == 0:
 #     user_input = input('Not a valid number, try again.  Enter an odd number between 1 and 50 \n')
+
+# user_input = int(user_input)
 # print(f'Number to skip is: {user_input}\n')
 # for p in range(51):
-#     if p == int(user_input):
-#         print(f'Yikes! Skipping number: {user_input}')
+#     if p == user_input:
+#         print(f'Yikes! Skipping number: {p}')
 #         continue
 #     if p % 2 == 0:
 #         continue
@@ -186,6 +188,38 @@
 #     else:
 #         print(number)
 
+# This is the most versatile version:
+
+# for n in range(1,101):
+#     output = ''
+#     if n % 3 == 0:
+#         output += 'Fizz'
+#     if n % 5 == 0:
+#         output += 'Buzz'
+#     if n % 7 == 0:
+#         output += 'Bang'
+
+# # if/else in one line
+#     print(n if output == '' else output)
+
+#     if output == '':
+#         print(n)
+#     else:
+#         print(output)
+
+# SCREW YOU CONDITIONALS
+
+# def fizzbuzz(n):
+#     fizzes = [1, 0, 0]
+#     buzzes = [2, 0, 0, 0, 0]
+#     words = [None, "Fizz", "Buzz", "FizzBuzz"]
+
+#     for i in range(1, n):
+#         words[0] = i
+#         print(words[fizzes[i%3] + buzzes[i%5]])
+
+# fizzbuzz(100)
+
 # Display a table of powers.
 
 # Prompt the user to enter an integer.
@@ -194,16 +228,15 @@
 # Assume that the user will enter valid data.
 # Only continue if the user agrees to.
 
-
-
-# user_number = input('What number would you like to go up to?')
+# user_number = input('What number would you like to go up to? ')
 # int_user_number = int(user_number)
 # user_number_squared = int_user_number * int_user_number
 # user_number_cubed = int_user_number ** int_user_number
 # print('Here are your numbers!\n')
-# print('number ', '|', ' squared ', '|', ' cubed')
+# print('number | squared | cubed')
+# print('------ | ------- | -----')
 # for i in range(1,int_user_number + 1):
-#     print(f'{i} {i * i} {i * i * i}')
+#     print(f'{i:<6} | {i ** 2:<7} | {i ** 3:<5}')
 
 # Convert given number grades into letter grades.
 # Prompt the user for a numerical grade from 0 to 100.
@@ -218,49 +251,61 @@
 # D : 66 - 60
 # F : 59 - 0
 
-# a =[]
-# for i in range(88,99):
-#     a.append(i)
-# x = 92 #placeholder; will change to input later
-# if x in a:
-#     print('yes')
-# else:
-#     print('no')
+        # a =[]
+        # for i in range(88,99):
+        #     a.append(i)
+        # x = 92 #placeholder; will change to input later
+        # if x in a:
+        #     print('yes')
+        # else:
+        #     print('no')
 
-# grade_test = {'A+': [99,100], 'A': [90,98], 'B+': [88,89], 'B': [80,87],
-#     'C+': [78,79], 'C': [67,77], 'D+': [65,66], 'D': [60,64], 'F': [0,59]}
-# user_grade = input('Please enter a numerical grade from 80 to 100: ')
-# for key in grade_test.keys():
-#     user_grade_int = int(user_grade)
-#     upper_bound = grade_test[key][1]
-#     lower_bound = grade_test[key][0]
-#     if user_grade_int >= lower_bound and user_grade_int <= upper_bound:
-#         print('Your grade is:',key)
+# grade_test = {
+#     'A+': [99,100],
+#     'A': [90,98],
+#     'B+': [88,89],
+#     'B': [80,87],
+#     'C+': [78,79],
+#     'C': [67,77],
+#     'D+': [65,66],
+#     'D': [60,64],
+#     'F': [0,59]
+#     }
 
+# user_grade = int(input('Please enter a numerical grade from 80 to 100: '))
 
+# for grade_key in grade_test.keys():
 
-# user_grade = input('Please enter a numerical grade from 0 to 100: ')
-# ugrade = int(user_grade)
-# if ugrade >= 99:
-#     grade_letter = 'A+'
-# elif ugrade >= 88:
-#     grade_letter = 'A'
-# elif ugrade >= 86:
-#     grade_letter = 'B+'
-# elif ugrade >= 80:
-#     grade_letter = 'B'
-# elif ugrade >= 78:
-#     grade_letter = 'C+'
-# elif ugrade >= 67:
-#     grade_letter = 'C'
-# elif ugrade >= 65:
-#     grade_letter = 'D+'
-# elif ugrade >= 60:
-#     grade_letter = 'D'
-# else:
-#     grade_letter = 'F'
-# print(f'Your grade letter is: {grade_letter}')
+#     upper_bound = grade_test[grade_key][1]
+#     lower_bound = grade_test[grade_key][0]
+#     if user_grade >= lower_bound and user_grade <= upper_bound:
+#         print('Your grade is:',grade_key)
 
+# continue_loop = 'yes'
+# while continue_loop == 'yes':
+#     user_grade = input('Please enter a numerical grade from 0 to 100: ')
+#     ugrade = int(user_grade)
+#     if ugrade >= 99:
+#         grade_letter = 'A+'
+#     elif ugrade >= 88:
+#         grade_letter = 'A'
+#     elif ugrade >= 86:
+#         grade_letter = 'B+'
+#     elif ugrade >= 80:
+#         grade_letter = 'B'
+#     elif ugrade >= 78:
+#         grade_letter = 'C+'
+#     elif ugrade >= 67:
+#         grade_letter = 'C'
+#     elif ugrade >= 65:
+#         grade_letter = 'D+'
+#     elif ugrade >= 60:
+#         grade_letter = 'D'
+#     else:
+#         grade_letter = 'F'
+#     print(f'Your grade letter is: {grade_letter}')
+
+#     continue_loop = input('Would you like to check another grade? (yes/no) ')
 
 #6. Create a list of dictionaries where each dictionary represents
 # a book that you have read. Each dictionary in the list should
@@ -269,23 +314,45 @@
 #Prompt the user to enter a genre, then loop through your books 
 # list and print out the titles of all the books in that genre.
 
-books_i_have_read = [
-    {'title': '12 Rules for Life', 'author': 'Jordan Peterson', 'genre': 'self-help'},
-    {'title': 'Panda Bear Panda Bear', 'author': 'Eric Carle', 'genre': 'children'},
-    {'title': 'Jurassic Park', 'author': 'Michael Crichton', 'genre': 'fiction'},
-    {'title': 'Test Book', 'author': 'Testy McTesterson', 'genre': 'fiction'}]
+# books = [
+#     {
+#         'title': '12 Rules for Life',
+#         'author': 'Jordan Peterson',
+#         'genre': 'self-help'
+#     },
+#     {
+#         'title': 'Panda Bear Panda Bear',
+#         'author': 'Eric Carle',
+#         'genre': 'children'
+#     },
+#     {
+#         'title': 'Jurassic Park',
+#         'author': 'Michael Crichton',
+#         'genre': 'fiction'
+#     },
+#     {
+#         'title': 'Test Book',
+#         'author': 'Testy McTesterson',
+#         'genre': 'fiction'
+#     }
+#     ]
 
-g_list = []
+# g_list = []
 
-for genre_list in books_i_have_read:
-    if genre_list['genre'] in g_list:
-        continue
-    else:
-        g_list.append(genre_list['genre'])
+# for book in books:
+#     if book['genre'] in g_list:
+#         continue
+#     else:
+#         g_list.append(book['genre'])
 
-user_genre = input(f'Which genre would you like to search for? \n{g_list} ')
+# user_genre = input(f'Which genre would you like to search for? \n{g_list} ')
 
-print('Here are the books with the genre of: ', user_genre)
-for list in books_i_have_read:
-    if user_genre == list['genre']:
-        print('title: {}'.format(list['title']))
+# print('Here are the books with the genre of: ', user_genre)
+# for list in books:
+#     if user_genre == list['genre']:
+#         print('- title: {}'.format(list['title']))
+#         print('- author: {}'.format(list['author']))
+#         print('- genre: {}'.format(list['genre']))
+#         print('\n')
+
+
