@@ -37,33 +37,6 @@
 #     overtime_hours = 0
 # print(f'Your paycheck should be ${(weekly_hours_worked * hourly_rate) + ((1.5 * hourly_rate) * overtime_hours)}.')
 
-# 1. The input function can be used to prompt for input 
-# and use that input in your python code. Prompt the user 
-# to enter a positive number and write a loop that counts 
-# from 0 to that number. (Hints: first make sure that the 
-# value the user entered is a valid number, also note that the 
-# input function returns a string, so you'll need to convert 
-# this to a numeric type.)
-
-# user_number = int(input('Enter a positive number: '))
-# if user_number > 0:
-#     for n in range(0,user_number):
-#         print(n)
-# else:
-#     print(f'{user_number} is not a positive number.')
-
-# 2. Write a program that prompts the user for a positive integer. 
-# Next write a loop that prints out the numbers from the number 
-# the user entered down to 1.
-
-
-# user_number = int(input('Enter a positive number: '))
-# if user_number > 0:
-#     for n in range(user_number,0,-1):
-#         print(n)
-# else:
-#     print(f'{user_number} is not a positive number.')
-
 # 2. Loop Basics
 # While
 # Create an integer variable i with a value of 5.
@@ -154,28 +127,142 @@
 #                 if p == user_input:
 #                     break
 
-i = input('Enter an odd number between 1 and 50: ')
-while not i.isdigit() or int(i) > 50 or int(i) < 1 or int(i) % 2 == 0:
-    user_input = input('Not a valid number, try again.  Enter an odd number between 1 and 50 \n')
-for p in range(1,51):
-    while p != i or p % 2 != 0:
-        continue
-    print(p)
+# user_input = input('Enter an odd number between 1 and 50: ')
+# while not user_input.isdigit() or int(user_input) > 50 or int(user_input) < 1 or int(user_input) % 2 == 0:
+#     user_input = input('Not a valid number, try again.  Enter an odd number between 1 and 50 \n')
+# print(f'Number to skip is: {user_input}\n')
+# for p in range(51):
+#     if p == int(user_input):
+#         print(f'Yikes! Skipping number: {user_input}')
+#         continue
+#     if p % 2 == 0:
+#         continue
+#     print(f'Here is an odd number: {p}')
+    
+# 1. The input function can be used to prompt for input 
+# and use that input in your python code. Prompt the user 
+# to enter a positive number and write a loop that counts 
+# from 0 to that number. (Hints: first make sure that the 
+# value the user entered is a valid number, also note that the 
+# input function returns a string, so you'll need to convert 
+# this to a numeric type.)
+
+# user_number = int(input('Enter a positive number: '))
+# if user_number > 0:
+#     for n in range(0,user_number):
+#         print(n)
+# else:
+#     print(f'{user_number} is not a positive number.')
+
+# Write a program that prompts the user for a positive integer. 
+# Next write a loop that prints out the numbers from the number 
+# the user entered down to 1.
+
+
+# user_number = int(input('Enter a positive number: '))
+# if user_number > 0:
+#     for n in range(user_number,0,-1):
+#         print(n)
+# else:
+#     print(f'{user_number} is not a positive number.')
+
+# Fizzbuzz
+# One of the most common interview questions for entry-level programmers 
+# is the FizzBuzz test. Developed by Imran Ghory, the test is designed 
+# to test basic looping and conditional logic skills.
+
+# Write a program that prints the numbers from 1 to 100.
+# For multiples of three print "Fizz" instead of the number
+# For the multiples of five print "Buzz".
+# For numbers which are multiples of both three and five print "FizzBuzz".
+
+# for number in range(101):
+#     if number % 3 == 0 and number % 5 == 0:
+#         print('FizzBuzz')
+#     elif number % 3 == 0:
+#         print('Fizz')
+#     elif number % 5 == 0:
+#         print('Buzz')
+#     else:
+#         print(number)
+
+# Display a table of powers.
+
+# Prompt the user to enter an integer.
+# Display a table of squares and cubes from 1 to the value entered.
+# Ask if the user wants to continue.
+# Assume that the user will enter valid data.
+# Only continue if the user agrees to.
 
 
 
+# user_number = input('What number would you like to go up to?')
+# int_user_number = int(user_number)
+# user_number_squared = int_user_number * int_user_number
+# user_number_cubed = int_user_number ** int_user_number
+# print('Here are your numbers!\n')
+# print('number ', '|', ' squared ', '|', ' cubed')
+# for i in range(1,int_user_number + 1):
+#     print(f'{i} {i * i} {i * i * i}')
 
+# Convert given number grades into letter grades.
+# Prompt the user for a numerical grade from 0 to 100.
+# Display the corresponding letter grade.
+# Prompt the user to continue.
+# Assume that the user will enter valid integers for the grades.
+# The application should only continue if the user agrees to.
+# Grade Ranges:
+# A : 100 - 88
+# B : 87 - 80
+# C : 79 - 67
+# D : 66 - 60
+# F : 59 - 0
+
+# a =[]
+# for i in range(88,99):
+#     a.append(i)
+# x = 92 #placeholder; will change to input later
+# if x in a:
+#     print('yes')
+# else:
+#     print('no')
+
+# user_grade = input('Please enter a numerical grade from 0 to 100: ')
+# ugrade = int(user_grade)
+# if ugrade >= 99:
+#     grade_letter = 'A+'
+# elif ugrade >= 88:
+#     grade_letter = 'A'
+# elif ugrade >= 86:
+#     grade_letter = 'B+'
+# elif ugrade >= 80:
+#     grade_letter = 'B'
+# elif ugrade >= 78:
+#     grade_letter = 'C+'
+# elif ugrade >= 67:
+#     grade_letter = 'C'
+# elif ugrade >= 65:
+#     grade_letter = 'D+'
+# elif ugrade >= 60:
+#     grade_letter = 'D'
+# else:
+#     grade_letter = 'F'
+# print(f'Your grade letter is: {grade_letter}')
 
 
 #6. Create a list of dictionaries where each dictionary represents
 # a book that you have read. Each dictionary in the list should
 # have the keys title, author, and genre. Loop through the list
 # and print out information about each book.
+#Prompt the user to enter a genre, then loop through your books 
+# list and print out the titles of all the books in that genre.
 
-# books_i_have_read = [{'title': '12 Rules for Life', 'author': 'Jordan Peterson', 'genre': 'self-help'},
-# {'title': 'Panda Bear Panda Bear', 'author': 'Eric Carle', 'genre': 'children'},
-# {'title': 'Jurassic Park', 'author': 'Michael Crichton', 'genre': 'fiction'}]
+books_i_have_read = [{'title': '12 Rules for Life', 'author': 'Jordan Peterson', 'genre': 'self-help'},
+{'title': 'Panda Bear Panda Bear', 'author': 'Eric Carle', 'genre': 'children'},
+{'title': 'Jurassic Park', 'author': 'Michael Crichton', 'genre': 'fiction'}]
 
-# for list in books_i_have_read:
-#     print('{} was the genre.'.format(list['genre']))
+user_genre = input('Which genre would you like to search for?')
 
+print('Here are the books with the genre of: ', user_genre)
+for list in books_i_have_read:
+    print('title: {}'.format(list['title']))
