@@ -227,15 +227,15 @@
 # else:
 #     print('no')
 
-grade_test = {'A+': [99,100], 'A': [90,98], 'B+': [88,89], 'B': [80,87],
-    'C+': [78,79], 'C': [67,77], 'D+': [65,66], 'D': [60,64], 'F': [0,59]}
-user_grade = input('Please enter a numerical grade from 80 to 100: ')
-for key in grade_test.keys():
-    user_grade_int = int(user_grade)
-    upper_bound = grade_test[key][1]
-    lower_bound = grade_test[key][0]
-    if user_grade_int >= lower_bound and user_grade_int <= upper_bound:
-        print('Your grade is:',key)
+# grade_test = {'A+': [99,100], 'A': [90,98], 'B+': [88,89], 'B': [80,87],
+#     'C+': [78,79], 'C': [67,77], 'D+': [65,66], 'D': [60,64], 'F': [0,59]}
+# user_grade = input('Please enter a numerical grade from 80 to 100: ')
+# for key in grade_test.keys():
+#     user_grade_int = int(user_grade)
+#     upper_bound = grade_test[key][1]
+#     lower_bound = grade_test[key][0]
+#     if user_grade_int >= lower_bound and user_grade_int <= upper_bound:
+#         print('Your grade is:',key)
 
 
 
@@ -269,12 +269,23 @@ for key in grade_test.keys():
 #Prompt the user to enter a genre, then loop through your books 
 # list and print out the titles of all the books in that genre.
 
-# books_i_have_read = [{'title': '12 Rules for Life', 'author': 'Jordan Peterson', 'genre': 'self-help'},
-# {'title': 'Panda Bear Panda Bear', 'author': 'Eric Carle', 'genre': 'children'},
-# {'title': 'Jurassic Park', 'author': 'Michael Crichton', 'genre': 'fiction'}]
+books_i_have_read = [
+    {'title': '12 Rules for Life', 'author': 'Jordan Peterson', 'genre': 'self-help'},
+    {'title': 'Panda Bear Panda Bear', 'author': 'Eric Carle', 'genre': 'children'},
+    {'title': 'Jurassic Park', 'author': 'Michael Crichton', 'genre': 'fiction'},
+    {'title': 'Test Book', 'author': 'Testy McTesterson', 'genre': 'fiction'}]
 
-# user_genre = input('Which genre would you like to search for?')
+g_list = []
 
-# print('Here are the books with the genre of: ', user_genre)
-# for list in books_i_have_read:
-#     print('title: {}'.format(list['title']))
+for genre_list in books_i_have_read:
+    if genre_list['genre'] in g_list:
+        continue
+    else:
+        g_list.append(genre_list['genre'])
+
+user_genre = input(f'Which genre would you like to search for? \n{g_list} ')
+
+print('Here are the books with the genre of: ', user_genre)
+for list in books_i_have_read:
+    if user_genre == list['genre']:
+        print('title: {}'.format(list['title']))
