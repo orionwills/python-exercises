@@ -1,11 +1,14 @@
 # Define a function named is_two. It should accept one input and return
 # True if the passed input is either the number or the string 2, False otherwise.
 
-# def is_two(one_input):
-#     if one_input == 2 or one_input == '2':
-#         return True
-#     else:
-#         return False
+def is_two(one_input):
+    if one_input == 2 or one_input == '2':
+        return True
+    else:
+        return False
+
+def is_two2(one_input):
+    return one_input == 2 or one_input == '2'
 
 # print(is_two(2))
 
@@ -19,6 +22,9 @@ def is_vowel(letter):
         return True
     else:
         return False
+
+def is_vowel2(letter):
+    return letter in 'aeiou'
 # print(is_vowel('i'))
 
 # ------------------------------------------------
@@ -31,6 +37,10 @@ def is_consonant(letter):
         return True
     else:
         return False
+
+def is_consonant2(letter):
+    return not is_vowel2
+
 # print(is_consonant('x'))
 
 # ------------------------------------------------
@@ -54,7 +64,10 @@ def calculate_tip(tip_percent, bill):
     tip_amount = bill * tip_percent
     return tip_amount
 
-print(f'${calculate_tip(.2,10):.2f}')
+def calculate_tip2(tip_percent, bill):
+    return bill * tip_percent
+
+# print(f'${calculate_tip(.2,10):.2f}')
 
 # ------------------------------------------------
 
@@ -65,6 +78,9 @@ def apply_discount(original_price, discount_percent):
     new_price = original_price - (original_price * discount_percent)
     return new_price
 
+def apply_discount2(original_price, discount_percent):
+    return original_price - original_price * discount_percent
+
 # print(f'Price with discount = ${apply_discount(10.00, .25):.2f}')
 
 # ------------------------------------------------
@@ -74,9 +90,12 @@ def apply_discount(original_price, discount_percent):
 
 def handle_commas(number_with_commas):
     number_without_commas = number_with_commas.replace(',', '')
-    return number_without_commas
+    return int(number_without_commas)
 
-# print('Your new number without commas is: ',handle_commas('1,500,500,000'))
+def handle_commas2(number_with_commas):
+    return int(number_with_commas.replace(',', ''))
+
+print('Your new number without commas is: ',handle_commas('1,500,500,000'))
 
 # ------------------------------------------------
 
@@ -107,13 +126,20 @@ def get_letter_grade(number):
 # Define a function named remove_vowels that accepts a string and returns a string with all the vowels removed.
 
 def remove_vowels(word):
-    new_word = ''
     word_list = []
     for v in word:
         if is_vowel(v):
             continue
         word_list.append(v)
-    return new_word.join(word_list)
+    return ''.join(word_list)
+
+def remove_vowels2(word):
+    return ''.join([letter for letter in word if not is_vowel(letter)])
+
+def remove_vowels3(word):
+    for vowel in 'aeiou':
+        word = word.replace(vowel, '')
+    return word
 
 # print(remove_vowels('hello'))
 
@@ -190,23 +216,15 @@ def twelveto24(user_time):
 # col_index('B') returns 2
 # col_index('AA') returns 27
 
-# def col_index(column_letter):
-#     letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-#     letters = list(letters)
-#     col_letters = 
+# def col_index(col_str):
+#     col_str = col_str.upper()
+#     expn = 0
+#     col_num = 0
+#     for char in reversed(col_str):
+#         col_num += (ord(char) - ord('A') + 1) * (26 ** expn)
+#         expn += 1
 
-
-# print(col_index('B'))
-
-def col_index(col_str):
-    col_str = col_str.upper()
-    expn = 0
-    col_num = 0
-    for char in reversed(col_str):
-        col_num += (ord(char) - ord('A') + 1) * (26 ** expn)
-        expn += 1
-
-    return col_num
+#     return col_num
 
 # print(col_index('aaa'))
 
