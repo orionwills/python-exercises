@@ -155,11 +155,17 @@ def remove_vowels3(word):
 
 # ------------------------------------------------
 
-def normalize_name(python_identifier):
-    valid_python = python_identifier.strip().lower().replace(' ', '_')
-    return valid_python
+LETTERS = ' _abcdefghijklmnopqrstuvwxyz0123456789'
 
-# print(normalize_name('\nCrazy wORd'))
+def normalize_name(python_identifier):
+    python_identifier = python_identifier.lower()
+    valid_chars = []
+    for character in python_identifier:
+        if character in LETTERS:
+            valid_chars.append(character)
+    return ''.join(valid_chars).strip().replace(' ', '_')
+
+# print(normalize_name('  Crazy wORd**$444'))
 
 # ------------------------------------------------
 
@@ -176,7 +182,15 @@ def cumsum(number_list):
         new_list.append(cum_num)
     return new_list
 
-# print(cumsum([1, 2, 3]))
+def cumsum2(numbers):
+    sums = [numbers[0]]
+    for current_number in numbers[1:]:
+        last_number = sums[-1]
+        next_number = last_number + current_number
+        sums.append(next_number)
+    return sums
+
+print(cumsum2([1, 2, 3, 4]))
 
 # ------------------------------------------------
 
@@ -226,10 +240,14 @@ def twelveto24(user_time):
 
 #     return col_num
 
-# print(col_index('aaa'))
+# print(col_index('xfd'))
 
-def col_index2(col_letter):
+def col_index2(letter_indexer):
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    return alphabet.index(col_letter)
+
+def col_index3(letter_to_check):
+
     alphabet = list(alphabet)
     itty = 0
     for letter in alphabet:
