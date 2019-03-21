@@ -2,3 +2,7 @@ env.py
 .ipynb_checkpoints/
 .vscode/
 __pycache__/
+Regression_Proj_Draft.*
+python_regression*
+regression_python.ipynb
+student_grades.csv
